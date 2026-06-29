@@ -8,7 +8,7 @@ const calendarDaySchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["class", "holiday", "off"],
+    enum: ["class", "holiday", "weekend"],
     default: "class",
   },
   note: {
