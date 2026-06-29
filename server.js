@@ -9,6 +9,8 @@ import fs from "fs";
 import studentRoutes from "./routes/studentRoutes.js";
 import classRoutes from "./routes/classRoutes.js";
 import lastCertificatesRouter from "./routes/lastCertificates.js";
+import calendarRoutes from "./routes/calendarRoutes.js";
+
 import { authenticateToken } from "./middleware/authMiddleware.js";
 
 dotenv.config();
@@ -30,6 +32,7 @@ app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 // ------------------------------------------------------
 app.use("/uploads/profile-images", express.static(path.join(__dirname, "uploads/profile-images")));
 app.use("/uploads/documents", express.static(path.join(__dirname, "uploads/documents")));
+app.use("/api/calendar", calendarRoutes);
 
 // ------------------------------------------------------
 // 🩺 HEALTH CHECK (PUBLIC)
