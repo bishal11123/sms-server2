@@ -7,6 +7,7 @@ const academicRecordSchema = new mongoose.Schema({
   from: { type: Date, required: true },
   to: { type: Date, required: true },
   faculty: { type: String, default: "" },
+  GPA: { type: String, default: "" },
   address: { type: String, default: "" },
 });
 
