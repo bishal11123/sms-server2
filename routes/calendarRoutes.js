@@ -61,7 +61,7 @@ router.post("/generate-year", async (req, res) => {
           filter: { date: dateStr },
           update: {
             date: dateStr,
-            type: day === 6 ? "off" : "class",
+            type: day === 6 ? "weekend" : "class",
           },
           upsert: true,
         },
