@@ -47,6 +47,7 @@ const studentSchema = new mongoose.Schema(
     sex: { type: String, enum: ["Male", "Female", "Other"], required: true },
     dob: { type: Date },
     pob: { type: String, trim: true, default: "" },
+    2GPA: { type: String, default: "" },
     email: { type: String, lowercase: true },
     currAdd: { type: String, default: "" },
     tempAdd: { type: String, default: "" },
