@@ -58,6 +58,7 @@ function parseStudentData(body, file, existing = {}) {
     sex: body.sex ?? existing.sex,
     dob: body.dob ? new Date(body.dob) : existing.dob,
     pob: body.pob ?? existing.pob,
+    NGPA: body.NGPA ?? existing.NGPA,
     email: body.email ?? existing.email,
     currAdd: body.currAdd ?? existing.currAdd,
     tempAdd: body.tempAdd ?? existing.tempAdd,
