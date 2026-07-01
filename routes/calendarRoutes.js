@@ -22,12 +22,12 @@ const generateMissingDays = async (from, to) => {
     const day = d.getDay();
 
     bulk.push({
-      updateOne: {
-        filter: { date: dateStr },
-        update: {
+      update: {
+        $setOnInsert: {
           date: dateStr,
-          type: day === 6 ? "weekend" : "class", // Saturday = weekend
+          type: day === 6 ? "weekend" : "class",
         },
+      }
         upsert: true,
       },
     });
