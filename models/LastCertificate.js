@@ -32,6 +32,15 @@ const LastCertificateSchema = new mongoose.Schema(
       required: true,
     },
 
+    sopContent: {
+  type: String,
+  default: "",
+},
+
+sopUpdatedAt: {
+  type: Date,
+},
+
     pdfData: {
       type: Buffer, // Store raw PDF
       default: null,
