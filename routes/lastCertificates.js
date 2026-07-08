@@ -58,4 +58,33 @@ router.get("/students/:studentId/certificates", async (req, res) => {
   }
 });
 
+// ==============================
+// UPDATE SOP
+// ==============================
+router.put("/certificates/:id/sop", async (req, res) => {
+  try {
+    const { sopContent } = req.body;
+
+    if (!sopContent) {
+      return res.status(400).json({ error: "SOP content required" });
+    }
+
+    const cert = await LastCertificate.findById(req.params.id);
+
+    if (!cert) {
+      return res.status(404).json({ error: "Certificate not found" });
+    }
+
+    cert.sopContent = sopContent;
+    cert.sopUpdatedAt = new Date();
+
+    await cert.save();
+
+    res.json({ message: "SOP updated", data: cert });
+  } catch (err) {
+    console.error("SOP error:", err);
+    res.status(500).json({ error: "Failed to update SOP" });
+  }
+});
+
 export default router;
